@@ -11,11 +11,11 @@ class FizzBuzzApplication
 
     public function run(Array $data)
     {
-        $count = 0;
+        $index = 0;
         foreach ($data as $val) {
-            if ($count++ !== 0) echo self::OUTPUT_DELIMITER;
+			$this->handleResult($this->getMessageOf($val), $index);
 
-            echo $this->convertValue($val);
+			$index++;
         }
     }
 
@@ -27,7 +27,16 @@ class FizzBuzzApplication
         );
     }
 
-    private function convertValue($val)
+	protected function handleResult($result, $index)
+	{
+		if ($index !== 0) {
+			echo self::OUTPUT_DELIMITER;
+		}
+
+        echo $result;
+	}
+
+    private function getMessageOf($val)
     {
         foreach ($this->spec_conf_list as $spec_conf) {
             if ($spec_conf['spec']->isSatisfiedBy($val)) {

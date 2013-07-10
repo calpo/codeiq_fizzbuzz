@@ -18,5 +18,6 @@ class FizzBuzzSpecification
     {
         return ((int)$val % $this->target === 0);
     }
+
 }
 
