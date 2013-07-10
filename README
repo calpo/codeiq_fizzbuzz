@@ -1,0 +1,97 @@
+FizzBuzz問題を解くアプリケーションを実装しているとします。
+
+  ★FizzBuzz問題とは？
+     1, 2, 3, ・・・という入力に対して3で割り切れる場合は「fizz」、5で割り切れる場合は「buzz」
+     3でも5でも割り切れる場合は「fizzbuzz」、それ以外は数値をそのまま出力する
+
+PHPコードは次の3ファイルで構成されます。
+　・fizzbuzz.php・・・実行スクリプト（問題にコードあり。ダウンロードファイルに含まれています）
+　・FizzBuzzApplication.php・・・アプリケーションクラス（作成してください）
+　・FizzBuzzSpecification.php・・・FizzBuzz仕様クラス（作成してください）
+
+以下に示す実行スクリプトと各クラスの仕様を元に、コードを完成させてください。
+
+■fizzbuzz.php
+　実行スクリプトfizzbuzz.phpは、次の内容です。
+　ダウンロードファイルに含まれていますので、変更せずそのまま利用してください。
+<?php
+namespace CodeIQ;
+require_once 'FizzBuzzSpecification.php';
+require_once 'FizzBuzzApplication.php';
+$app = new FizzBuzzApplication();
+$app->addSpecAndMessage(new FizzBuzzSpecification(15), 'fizzbuzz');
+$app->addSpecAndMessage(new FizzBuzzSpecification(3), 'fizz');
+$app->addSpecAndMessage(new FizzBuzzSpecification(5), 'buzz');
+$data = range(1,30);
+$app->run($data);
+
+
+■FizzBuzzApplicationクラス
+　FizzBuzzApplicationクラスは、今回のFizzBuzz問題全体を表します。
+
+　・addSpecAndMessage()メソッド
+　　引数で受け取った仕様と、仕様にマッチした場合のメッセージを対で格納します。
+　　仕様とメッセージの対は複数登録されます。
+　・run()メソッド
+　　問題のデータ（1次元の数値データの配列）を引数で受け取り、全データに対してFizzBuzz問題を実行します。
+
+　※必要に応じてプロパティや補助メソッドを実装してください。
+
+■FizzBuzzSpecificationクラス
+　FizzBuzz問題における、1つの条件を表します。たとえば「データが3で割り切れるかどうか」という条件に該当します。
+
+　・コンストラクタ
+　　条件のパラメータを受け取ります
+　・isSatisfiedBy()メソッド
+　　オブジェクトが表す条件にマッチするかどうかを判定します
+
+　※必要に応じてプロパティや補助メソッドを実装してください。
+
+コード完成後fizzbuzz.phpを実行すると、結果が次のようになります。
+（左側の二桁の数字は行番号ですので、アプリケーションの出力とは関係ありません）
+1
+2
+fizz
+4
+buzz
+fizz
+7
+8
+fizz
+buzz
+11
+fizz
+13
+14
+fizzbuzz
+16
+17
+fizz
+19
+buzz
+fizz
+22
+23
+fizz
+buzz
+26
+fizz
+28
+29
+fizzbuzz
+
+
+■その他の要件
+　コーディング規約はPSRに準拠してください。
+　http://www.php-fig.org/
+
+■解答方法
+　php_fizzbuzz_answer.zip：
+　ZIPを解凍してお使いください。以下の2つのファイルが入っています。
+　・php_fizzbuzz_answer.txt
+　　解答用テキストファイル
+　・fizzbuzz.php
+　　問題文で使われているコード
+
+　解答は、解答用テキストファイル「php_fizzbuzz_answer.txt」に書かれていることに従って解答ファイルを作成し、
+　完成したらファイルアップロードで提出してください。
