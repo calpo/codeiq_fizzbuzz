@@ -8,7 +8,7 @@ class FizzBuzzSpecification
     public function __construct($target)
     {
         if ((int)$target === 0) {
-            throw new Exception("invalid parameter");
+            throw new \InvalidArgumentException($target);
         }
 
         $this->target = (int)$target;
