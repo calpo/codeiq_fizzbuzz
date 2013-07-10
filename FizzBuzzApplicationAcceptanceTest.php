@@ -1,5 +1,10 @@
 <?php
-class FizzBuzzApplicationAcceptanceTest extends PHPUnit_Framework_TestCase
+namespace CodeIQ;
+
+require_once 'FizzBuzzApplication.php';
+require_once 'FizzBuzzSpecification.php';
+
+class FizzBuzzApplicationAcceptanceTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
@@ -27,7 +32,7 @@ class FizzBuzzApplicationAcceptanceTest extends PHPUnit_Framework_TestCase
 
 		$app->run($data);
 
-		$str = ob_get_flush();
+		$str = ob_get_clean();
 
 		$this->assertEquals($this->expectedFizzBuzzString(), $str);
     }
