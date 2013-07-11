@@ -20,7 +20,7 @@ class FizzBuzzApplicationAcceptanceTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @test
 	 */
-    function 受け入れテスト()
+	function FizzBuzz問題の回答を出力する()
     {
 		$app = new FizzBuzzApplication;
 

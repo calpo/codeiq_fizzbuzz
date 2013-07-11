@@ -5,8 +5,6 @@ require_once 'FizzBuzzSpecification.php';
 
 class FizzBuzzApplication
 {
-    const OUTPUT_DELIMITER = PHP_EOL;
-
     private $specAndMessages;
 
     public function run(Array $data)
@@ -14,7 +12,6 @@ class FizzBuzzApplication
         $index = 0;
         foreach ($data as $val) {
 			$this->handleResult($this->getMessageOf($val), $index);
-
 			$index++;
         }
     }
@@ -30,7 +27,7 @@ class FizzBuzzApplication
 	protected function handleResult($result, $index)
 	{
 		if ($index !== 0) {
-			echo self::OUTPUT_DELIMITER;
+			echo PHP_EOL;
 		}
 
         echo $result;
