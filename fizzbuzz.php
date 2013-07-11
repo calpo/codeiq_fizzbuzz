@@ -12,6 +12,3 @@ $app->addSpecAndMessage(new FizzBuzzSpecification(5), 'buzz');
 $data = range(1,30);
 
 $app->run($data);
-
-
-

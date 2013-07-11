@@ -11,8 +11,8 @@ class FizzBuzzApplication
     {
         $index = 0;
         foreach ($data as $val) {
-			$this->handleResult($this->getMessageOf($val), $index);
-			$index++;
+            $this->handleResult($this->getMessageOf($val), $index);
+            $index++;
         }
     }
 
@@ -24,14 +24,14 @@ class FizzBuzzApplication
         );
     }
 
-	protected function handleResult($result, $index)
-	{
-		if ($index !== 0) {
-			echo PHP_EOL;
-		}
+    protected function handleResult($result, $index)
+    {
+        if ($index !== 0) {
+            echo PHP_EOL;
+        }
 
         echo $result;
-	}
+    }
 
     private function getMessageOf($val)
     {

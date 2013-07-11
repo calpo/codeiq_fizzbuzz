@@ -8,33 +8,33 @@ class FizzBuzzApplicationAcceptanceTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
     {
-		ob_flush();
-		ob_start();
+        ob_flush();
+        ob_start();
     }
 
-	public function tearDown()
-	{
-		ob_end_flush();
-	}
-
-	/**
-	 * @test
-	 */
-	function FizzBuzz問題の回答を出力する()
+    public function tearDown()
     {
-		$app = new FizzBuzzApplication;
+        ob_end_flush();
+    }
 
-		$app->addSpecAndMessage(new FizzBuzzSpecification(15), 'fizzbuzz');
-		$app->addSpecAndMessage(new FizzBuzzSpecification(3), 'fizz');
-		$app->addSpecAndMessage(new FizzBuzzSpecification(5), 'buzz');
+    /**
+     * @test
+     */
+    public function FizzBuzz問題の回答を出力する()
+    {
+        $app = new FizzBuzzApplication;
 
-		$data = range(1,30);
+        $app->addSpecAndMessage(new FizzBuzzSpecification(15), 'fizzbuzz');
+        $app->addSpecAndMessage(new FizzBuzzSpecification(3), 'fizz');
+        $app->addSpecAndMessage(new FizzBuzzSpecification(5), 'buzz');
 
-		$app->run($data);
+        $data = range(1,30);
 
-		$str = ob_get_clean();
+        $app->run($data);
 
-		$this->assertEquals($this->expectedFizzBuzzString(), $str);
+        $str = ob_get_clean();
+
+        $this->assertEquals($this->expectedFizzBuzzString(), $str);
     }
 
 
@@ -75,4 +75,3 @@ EOT;
     }
 
 }
-
