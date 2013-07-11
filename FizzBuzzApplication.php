@@ -7,7 +7,7 @@ class FizzBuzzApplication
 {
     const OUTPUT_DELIMITER = PHP_EOL;
 
-    private $spec_conf_list;
+    private $specAndMessages;
 
     public function run(Array $data)
     {
@@ -21,7 +21,7 @@ class FizzBuzzApplication
 
     public function addSpecAndMessage(FizzBuzzSpecification $spec, $message)
     {
-        $this->spec_conf_list[] = array(
+        $this->specAndMessages[] = array(
             'spec'        => $spec,
             'message'    => $message
         );
@@ -38,9 +38,9 @@ class FizzBuzzApplication
 
     private function getMessageOf($val)
     {
-        foreach ($this->spec_conf_list as $spec_conf) {
-            if ($spec_conf['spec']->isSatisfiedBy($val)) {
-                return $spec_conf['message'];
+        foreach ($this->specAndMessages as $specAndMessage) {
+            if ($specAndMessage['spec']->isSatisfiedBy($val)) {
+                return $specAndMessage['message'];
             }
         }
 
